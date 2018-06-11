@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<head>
+    <ui:insert name="head" >
+       	<ui:include src="components/head_dependencies.xhtml" />
+    </ui:insert>
+    <link href="src/css/payment_style.css" rel="stylesheet" type="text/css" media="all" />
+    <title>Checkout | Web Sector</title>
+</head>
+
+<body>
+    <c:if test="#{log.getSessionName()!='user'}">
+        <script>
+            window.location.replace('index.xhtml');
+        </script>
+    </c:if>
+    <ui:insert name="header" >
+        <ui:include src="components/top_btn.xhtml" />
+        <ui:include src="components/tittle.xhtml" />
+       	<ui:include src="components/menu.xhtml" />
+        <ui:include src="components/pop_windows.xhtml" />
+    </ui:insert>
+    
+    <c:if test="#{log.getSessionName()=='admin'}">
+        #{paymentForm.paymentForm()}
+    </c:if>
+    <div id='wrapper'>
+	<div id='container'>
+            <div id='info'>
+		<img id='product' src="#{print.getImage_1()}"/>
+		<p>
+                    <h:outputText value="#{print.getTittle()}"></h:outputText>
+                </p>
+		<div id='price'>
+                    <h2>
+                        <h:outputText value="#{print.getPrice()}"></h:outputText>
+                    </h2>
+		</div>
+            </div>
+            <div id='payment'>
+		<form action='thank_you.xhtml' method='POST' id='checkout'>
+                    <input name='id' value='#{print.getID()}' type='text' hidden="true" />
+                    <input class='card' id='visa' name='card' value='' type='button' />
+                    <input class='card' id='mastercard' name='card' value='' type='button' />
+                    <label>Credit Card Number</label>
+                    <input id='cardnumber' pattern='[0-9]{13,16}' name='cardnumber' requierd='true' placeholder='0123-4567-8901-2345' type='text' />
+                    <label>Card Holder</label>
+                    <input id='cardholder' name='name' requierd='true' maxlength='50' placeholder='Cardholder' type='text' />
+                    <label>Expiration Date</label>
+                    <label id='cvc-label'>CVC/CVV</label>
+                    <div id='left'>
+                        <select name='month' id='month' onchange='' size='1'>
+                            <option value='00'>MM</option>
+                            <option value='01'>01</option>
+                            <option value='02'>02</option>
+                            <option value='03'>03</option>
+                            <option value='04'>04</option>
+                            <option value='05'>05</option>
+                            <option value='06'>06</option>
+                            <option value='07'>07</option>
+                            <option value='08'>08</option>
+                            <option value='09'>09</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
+			</select>
+			<p></p>
+			<select name='year' id='year' onchange='' size='1'>
+                            <option value='00'>YY</option>
+                            <option value='01'>16</option>
+                            <option value='02'>17</option>
+                            <option value='03'>18</option>
+                            <option value='04'>19</option>
+                            <option value='05'>20</option>
+                            <option value='06'>21</option>
+                            <option value='07'>22</option>
+                            <option value='08'>23</option>
+                            <option value='09'>24</option>
+                            <option value='10'>25</option>
+                        </select>
+                    </div>
+                    <input id='cvc' placeholder='Cvc/Cvv' maxlength='3' type='text' />
+                    <input class='btn' name='purchase' value='Purchase' type='submit' />
+		</form>
+            </div>
+	</div>
+    </div>
+    <ui:insert name="footer" >
+        <ui:include src="components/footer.xhtml" />
+    </ui:insert>
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    					
+<script>
+    $(document).ready(function () {
+	$('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function(event) { // Callback function if tab is switched
+            var $tab = $(this);
+            var $info = $('#tabInfo');
+            var $name = $('span', $info);
+            $name.text($tab.text());
+            $info.show();
+            }
+        });
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+	$('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function(event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+    });
+    $('#verticalTab').easyResponsiveTabs({
+	type: 'vertical',
+	width: 'auto',
+	fit: true
+	});
+    });
+</script>
+<script type="text/javascript" src="src/js/move-top.js"></script>
+<script type="text/javascript" src="src/js/jquery.easing.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+	$(".scroll").click(function(event){		
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {		
+        $().UItoTop({ easingType: 'easeOutQuart' });							
+    });
+</script>
+</body>
+</html>

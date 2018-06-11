@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 300;
+  color: black;
+}
+*:focus {
+  outline: none;
+}
+
+#wrapper {
+  width: 100%;
+}
+
+#container {
+  width: 720px;
+  height: 480px;
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#info {
+  width: 52%;
+  height: 480px;
+  float: left;
+text-align: center;
+}
+#info #product {
+  height: 80%;
+}
+#info p {
+  width: 100%;
+  text-align: center;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+}
+#info #price {
+  width: 50%;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+#info #price h2 {
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  color: #000;
+  padding-top: 10px;
+}
+
+#payment {
+  width: 40%;
+  float: right;
+  padding: 95px 50px 25px 0;
+}
+
+#checkout {
+  width: 100%;
+}
+#checkout input {
+  margin-bottom: 15px;
+}
+#checkout label {
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.6em;
+  padding: 0 0 5px 10px;
+}
+#checkout #cvc-label {
+  margin-left: 25px;
+}
+#checkout .card {
+  width: 29%;
+  margin: 0 10% 25px 10%;
+  border: none;
+  background: none;
+  height: 50px;
+  cursor: pointer;
+  -webkit-filter: grayscale(100%);
+  /* Chrome, Safari, Opera */
+  filter: grayscale(100%);
+}
+#checkout .card:focus {
+  -webkit-filter: none;
+  filter: none;
+}
+#checkout #visa {
+  background-image: url("http://enwaara.se/codepen/visa.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+#checkout #mastercard {
+  background-image: url("http://enwaara.se/codepen/mastercard.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 118%;
+}
+#checkout #cardnumber, #checkout #cardholder, #checkout #cvc {
+  width: 100%;
+  background: none;
+  border: 1px solid #6C7A89;
+  padding: 8px 19px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+#checkout ::-webkit-input-placeholder {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: #BDC3C7;
+}
+#checkout #cardnumber {
+  letter-spacing: 3px;
+}
+#checkout #cardnumber::-webkit-input-placeholder {
+  font-size: 1em;
+}
+#checkout #left {
+  width: 43%;
+  border: 1px solid #6C7A89;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 3px 5px;
+  float: left;
+}
+#checkout #left #month, #checkout #left #year {
+  background: none;
+  border: none;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  float: left;
+  font-size: 0.8em;
+  letter-spacing: 3px;
+  color: #BDC3C7;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+#checkout #left #month option, #checkout #left #year option {
+  background: #ECECEC;
+}
+#checkout #left p {
+  float: left;
+  padding-top: 2px;
+  font-size: 1.2em;
+  color: #BDC3C7;
+  letter-spacing: 3px;
+}
+#checkout #cvc {
+  width: 45%;
+  float: left;
+  margin-left: 11%;
+}
+#checkout .btn {
+  background: #03C9A9;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: #ECECEC;
+  cursor: pointer;
+}
+#checkout .btn:hover {
+  background: #16A085;
+}

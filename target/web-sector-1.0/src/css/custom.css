@@ -1,0 +1,46 @@
+.header .sing-in-up {
+  text-align: center; }
+
+.sing-pop {
+  width: 400px; }
+
+.cart-form {
+  padding: 15px !important;
+  z-index: 2; }
+
+.submit-btn {
+  float: right;
+  top: -5px;
+  position: relative;
+  background-color: #50dd25;
+  border-radius: 5px;
+  font-weight: bold; }
+
+.submit-btn:hover {
+  border-color: green; }
+
+.ban-top-sub {
+  display: flex;
+  justify-content: center; }
+
+.jumbotron {
+  text-align: center;
+  padding: 60px;
+  margin: 0; }
+
+.sub-btn input {
+  font-size: 13px;
+  color: #fff;
+  background: #2fdab8;
+  text-decoration: none;
+  position: relative;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  text-transform: uppercase;
+  padding: .5em 0;
+  outline: none;
+  letter-spacing: 1px;
+  font-weight: 600; }
+
+/*# sourceMappingURL=custom.css.map */

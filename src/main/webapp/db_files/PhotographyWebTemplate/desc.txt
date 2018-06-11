@@ -1,0 +1,9 @@
+This template is made for people who are in the field of photography. It is stunning for freelance photographers or anyone who wants to show their gallery to the world!
+
+
+To create it our developers used HTML, CSS3 and Bootstrap and JS frameworks. The template is responsive, which means that it has flexible design. It can change according to the screen size of the device, therefore looks perfect as on PCs and laptops, as well on smartphones or tablets.
+
+
+Our designers considered every single detail to make the first impression of this website simply amazing!
+
+As you can probably already see, the main menu is placed on the left side column of our Home page. It is closed on default, but you can view it by clicking on the button on the top.

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<head>
+ 
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<title>Admin | Web Sector</title>
+<link rel="stylesheet" href="src/admin/node_modules/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="src/admin/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+<link rel="stylesheet" href="src/admin/css/style.css" />
+<link rel="shortcut icon" href="src/admin/images/favicon.png" />
+</head>
+
+<body>
+    <c:if test="#{log.getSessionName()=='admin'}">
+        <script>
+            window.location.replace('sales.xhtml');
+        </script>
+    </c:if>
+  <div class="container-scroller">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrapper full-page-wrapper d-flex align-items-center auth-pages">
+          <div class="card col-lg-4 mx-auto">
+            <div class="card-body px-5 py-5">
+              <h3 class="card-title text-left mb-3">Login</h3>
+              <h:form>
+                <div class="form-group">
+                  <input name="usermail" value="" type="email" class="form-control p_input" placeholder="Username"/>
+                </div>
+                <div class="form-group">
+                  <input name="passw" value="" type="password" class="form-control p_input" placeholder="Password"/>
+                </div>
+                <div class="text-center">
+                    <h:commandButton action="#{log.setInfo('admins')}" value="Log In" class="btn btn-primary btn-block enter-btn"></h:commandButton>
+                </div>
+              </h:form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/admin/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="src/admin/node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="src/admin/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="src/admin/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+  <script src="src/admin/js/misc.js"></script>
+</body>
+
+</html>
+

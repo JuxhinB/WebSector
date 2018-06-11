@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Sales | Web Sector</title>
+    <link rel="stylesheet" href="src/admin/node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="src/admin/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+    <link rel="stylesheet" href="src/admin/node_modules/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="src/admin/css/admin_style.css" />
+    <link rel="stylesheet" href="src/admin/css/style.css" />
+</head>
+
+<body>
+    <c:if test="#{log.getSessionName()!='admin'}">
+        <script>
+            window.location.replace('admin.xhtml');
+        </script>
+    </c:if>
+    <div class=" container-scroller">
+        
+        
+        <ui:include src="components/admin_menu.xhtml" />
+        
+        <div class="container-fluid" style="top:35px; position:relative;">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="content-wrapper">
+                    <h3 class="page-heading mb-4">Dashboard</h3>
+                    <div class="card-deck">
+                        <div class="card col-lg-12 px-0 mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Sales</h5>
+                                <div class="table-responsive">
+                                    <table class="table center-aligned-table">
+                                        <thead>
+                                            <tr class="text-primary">
+                                                <th>ID</th>
+                                                <th>Buyer</th>
+                                                <th>Product</th>
+                                                <th>Date Sold</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            
+                                        </thead>
+                                    <tbody>
+<!--                                    <h:panelGroup>
+                                        <h:outputText value="" escape="false"></h:outputText>
+                                    </h:panelGroup>-->
+                                    <c:forEach var="sale" items="#{}" >
+                                            <tr>
+                                                <td>
+                                            <h:outputText value="#{sale.}"></h:outputText>
+                                                    
+                                                </td>
+                                                <td>
+                                                    <h:outputText value=""></h:outputText>
+                                                    <h:outputText value=""></h:outputText>
+                                                </td>
+                                                <td>
+                                                    <h:outputText value=""></h:outputText>
+                                                </td>
+                                                <td>
+                                                    <h:outputText value=""></h:outputText>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="src/admin/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="src/admin/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="src/admin/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="src/admin/node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="src/admin/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="src/admin/js/off-canvas.js"></script>
+<script src="src/admin/js/hoverable-collapse.js"></script>
+<script src="src/admin/js/misc.js"></script>
+<script src="src/admin/js/chart.js"></script>
+<script src="src/admin/js/maps.js"></script>
+
+</body>
+
+</html>

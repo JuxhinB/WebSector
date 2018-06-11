@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <ui:insert name="head" >
+       	<ui:include src="components/head_dependencies.xhtml" />
+    </ui:insert>
+    <title>Web Templates | Web Sector</title>
+</head>
+
+<body>
+    <ui:insert name="header" >
+        <ui:include src="components/top_btn.xhtml" />
+        <ui:include src="components/tittle.xhtml" />
+       	<ui:include src="components/menu.xhtml" />
+        <ui:include src="components/pop_windows.xhtml" />
+    </ui:insert>
+    
+    <div class="banner-bootom-w3-agileits">
+	<div class="container">
+            <div class='single-pro'>
+                <h:panelGroup>
+                    <h:outputText value="#{LatestPosts.gallery()}" escape="false"></h:outputText>
+                </h:panelGroup>
+                <div class='clearfix'></div>
+            </div>
+        </div>    
+    </div>
+    
+    <ui:insert>
+        <ui:include src="components/footer.xhtml" />
+    </ui:insert>  
+
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    					
+<script>
+    $(document).ready(function () {
+	$('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function(event) { // Callback function if tab is switched
+            var $tab = $(this);
+            var $info = $('#tabInfo');
+            var $name = $('span', $info);
+            $name.text($tab.text());
+            $info.show();
+            }
+        });
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+	$('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function(event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+    });
+    $('#verticalTab').easyResponsiveTabs({
+	type: 'vertical',
+	width: 'auto',
+	fit: true
+	});
+    });
+</script>
+<script type="text/javascript" src="src/js/move-top.js"></script>
+<script type="text/javascript" src="src/js/jquery.easing.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+	$(".scroll").click(function(event){		
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {		
+        $().UItoTop({ easingType: 'easeOutQuart' });							
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition>
+            <div class="header" id="home">
+                    <div class="container">
+                        <ul class="sing-in-up">
+                            
+                            <c:if test="#{log.getSessionName() != 'user'}">
+                                <li> 
+                                    <a href='#' data-toggle='modal' data-target='#myModal'>
+                                        <i class='fa fa-lock' aria-hidden='true'></i>  Sign In 
+                                    </a>
+                                </li>
+                                <li> 
+                                    <a href='#' data-toggle='modal' data-target='#myModal2'>
+                                        <i class='fa fa-user' aria-hidden='true'></i>  Sign Up 
+                                    </a>
+                                </li>
+                            </c:if>
+                            
+                            <c:if test="#{log.getSessionName() == 'user'}">
+                                <li>
+                                    <h:form>
+                                        <h:commandLink value="LogOut" action="#{log.logout()}" />
+                                        <i class='fa fa-unlock-alt' aria-hidden='true'></i>
+                                    </h:form>
+                                </li>
+                            </c:if>
+                            
+                        </ul>
+                    </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>
