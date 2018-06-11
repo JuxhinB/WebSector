@@ -14,6 +14,7 @@ import javax.faces.bean.RequestScoped;
 public class panel {
     ArrayList <saleInfo> arraySaleInfo = new ArrayList<saleInfo>();
     ArrayList <productInfo> arrayProductInfo = new ArrayList<productInfo>();
+    ArrayList <userInfo> arrayUserInfo = new ArrayList<userInfo>();
     db_connect db = new db_connect();
     
     public ArrayList sales() throws ClassNotFoundException, SQLException{
@@ -85,7 +86,26 @@ public class panel {
         return this.arrayProductInfo;
     }
     
-//    public String users(){
-//        
-//    }
+    public ArrayList users() throws ClassNotFoundException, SQLException{
+        ResultSet userRes;
+        int id;
+        String fn, ln, email, desc;
+        Statement stm = db.getConnection().createStatement();
+        try{
+            String query = "SELECT * FROM users ORDER BY id ASC";
+            userRes = stm.executeQuery(query);
+            while (userRes.next()) {
+                id = userRes.getInt("id");
+                fn = userRes.getString("first_name");
+                ln = userRes.getString("last_name");
+                desc = userRes.getString("description");
+                email = userRes.getString("email");
+                userInfo user = new userInfo(id, fn, ln, desc, email);
+                this.arrayUserInfo.add(user);
+            }
+        }catch (Exception e) {
+            System.err.println("Error : " + e);
+        }
+        return this.arrayUserInfo;
+    }
 }

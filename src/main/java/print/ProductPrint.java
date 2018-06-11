@@ -3,7 +3,6 @@ package print;
 import important.log_in_out;
 import java.sql.ResultSet;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="print")
@@ -112,7 +111,6 @@ public class ProductPrint {
     }
     
     public void setBtn(){
-        //session validation
         this.btn = "enabled";
     }
     

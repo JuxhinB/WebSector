@@ -6,9 +6,9 @@ import java.sql.Statement;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-@ManagedBean(name="LatestPosts")
+@ManagedBean(name="posts")
 @RequestScoped
-public class LatestPosts {
+public class posts {
     
     ResultSet result;
     String combo = "";

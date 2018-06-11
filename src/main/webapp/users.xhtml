@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>Products | Web Sector</title>
+    <title>Users | Web Sector</title>
     <link rel="stylesheet" href="src/admin/node_modules/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="src/admin/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
     <link rel="stylesheet" href="src/admin/node_modules/flag-icon-css/css/flag-icon.min.css" />
@@ -35,39 +35,46 @@
                     <div class="card-deck">
                         <div class="card col-lg-12 px-0 mb-4">
                             <div class="card-body">
-                                <h5 class="card-title">Products</h5>
+                                <h5 class="card-title">Users</h5>
                                 <div class="table-responsive">
                                     <table class="table center-aligned-table">
                                         <thead>
                                             <tr class="text-primary">
                                                 <th>ID</th>
-                                                <th>Tittle</th>
+                                                <th>First Name</th>
+                                                <th>last Name</th>
+                                                <th>E-Mail</th>
                                                 <th>Description</th>
-                                                <th>Price</th>
-                                                <th>Category</th>
-                                                <th>Sales</th>
-                                                <th>Date Posted</th>
                                                 <th></th>
                                             </tr>
+                                            
                                         </thead>
                                     <tbody>
-                                    <ui:repeat var="i" value="#{panel.products()}">
-                                        <tr>
-                                            <td>#{i.id}</td>
-                                            <td>#{i.tittle}</td>
-                                            <td>desc</td>
-                                            <td>#{i.price} $</td>
-                                            <td>#{i.category}</td>
-                                            <td>#{i.sales}</td>
-                                            <td>#{i.prdDate}</td>
-                                            <td>
+                                    <ui:repeat var="i" value="#{panel.users()}" >
+                                            <tr>
+                                                <td>
+                                                    <h:outputText value="#{i.id}"></h:outputText>
+                                                </td>
+                                                <td>
+                                                    <h:outputText value="#{i.fn}"></h:outputText>
+                                                </td>
+                                                <td>
+                                                    <h:outputText value="#{i.ln}"></h:outputText>
+                                                </td>
+                                                <td>
+                                                    <h:outputText value="#{i.desc}"></h:outputText>
+                                                </td>
+                                                <td>
+                                                    <h:outputText value="#{i.email}"></h:outputText>
+                                                </td>
+                                                <td>
                                                 <h:form>
-                                                    <input hidden="true" name='id' value="#{i.id}" />
+                                                    <input hidden="true" value="" />
                                                     <h:commandButton class="del_btn" value="Delete" onclick=""></h:commandButton>
                                                 </h:form>
-                                            </td>
-                                        </tr>
-                                    </ui:repeat>
+                                                </td>
+                                            </tr>
+                                        </ui:repeat>
                                     </tbody>
                                 </table>
                             </div>
@@ -91,5 +98,4 @@
 <script src="src/admin/js/maps.js"></script>
 
 </body>
-
 </html>
