@@ -1,8 +1,0 @@
-print\ProductPrint.class
-print\saleInfo.class
-print\panel.class
-print\PaymentForm.class
-important\log_in_out.class
-important\db_connect.class
-print\ItemInfo.class
-print\LatestPosts.class
