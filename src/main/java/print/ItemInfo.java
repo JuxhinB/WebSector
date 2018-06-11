@@ -35,7 +35,6 @@ public class ItemInfo {
         FacesContext fc = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) fc.getCurrentInstance().getExternalContext().getRequest();
         this.selectedID = Integer.parseInt(request.getParameter("id"));
-        System.out.println("seleceted ID "+this.selectedID);
         itemInfo();
     }
 }
