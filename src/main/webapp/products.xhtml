@@ -50,9 +50,23 @@
                                             </tr>
                                         </thead>
                                     <tbody>
-                                    <h:panelGroup>
-                                        <h:outputText value="#{panel.products()}" escape="false"></h:outputText>
-                                    </h:panelGroup>
+                                    <ui:repeat var="i" value="#{panel.products()}">
+                                        <tr>
+                                            <td>#{i.id}</td>
+                                            <td>#{i.tittle}</td>
+                                            <td>desc</td>
+                                            <td>#{i.price} $</td>
+                                            <td>#{i.category}</td>
+                                            <td>#{i.sales}</td>
+                                            <td>#{i.prdDate}</td>
+                                            <td>
+                                                <h:form>
+                                                    <input hidden="true" name='id' value="#{i.id}" />
+                                                    <h:commandButton class="del_btn" value="Delete"></h:commandButton>
+                                                </h:form>
+                                            </td>
+                                        </tr>
+                                    </ui:repeat>
                                     </tbody>
                                 </table>
                             </div>

@@ -50,27 +50,23 @@
                                             
                                         </thead>
                                     <tbody>
-<!--                                    <h:panelGroup>
-                                        <h:outputText value="" escape="false"></h:outputText>
-                                    </h:panelGroup>-->
-                                    <c:forEach var="sale" items="#{}" >
+                                    <ui:repeat var="i" value="#{panel.sales()}" >
                                             <tr>
                                                 <td>
-                                            <h:outputText value="#{sale.}"></h:outputText>
-                                                    
+                                                    <h:outputText value="#{i.id}"></h:outputText>
                                                 </td>
                                                 <td>
-                                                    <h:outputText value=""></h:outputText>
-                                                    <h:outputText value=""></h:outputText>
+                                                    <h:outputText value="#{i.fn}"></h:outputText>
+                                                    <h:outputText value="#{i.ln}"></h:outputText>
                                                 </td>
                                                 <td>
-                                                    <h:outputText value=""></h:outputText>
+                                                    <h:outputText value="#{i.sales}"></h:outputText>
                                                 </td>
                                                 <td>
-                                                    <h:outputText value=""></h:outputText>
+                                                    <h:outputText value="#{i.date}"></h:outputText>
                                                 </td>
                                             </tr>
-                                        </c:forEach>
+                                        </ui:repeat>
                                     </tbody>
                                 </table>
                             </div>

@@ -9887,9 +9887,7 @@ tbody.collapse.show {
 .card-title {
   margin-bottom: 0.75rem; 
   height: 25px;
-    background-color: white;
-    bottom: -26px;
-    position: relative;
+ position: relative;
 }
 
 .card-subtitle {
