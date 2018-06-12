@@ -3,7 +3,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <head>
     <ui:insert name="head" >
        	<ui:include src="components/head_dependencies.xhtml" />
@@ -22,9 +22,50 @@
     <div class="banner-bootom-w3-agileits">
 	<div class="container">
             <div class='single-pro'>
-                <h:panelGroup>
-                    <h:outputText value="#{posts.gallery()}" escape="false"></h:outputText>
-                </h:panelGroup>
+                <ui:repeat var="i" value="#{posts.gallery()}">
+                    <div class='col-xs-6 col-md-3 product-men'>
+                        <div class='men-pro-item simpleCart_shelfItem'>
+
+                            <div class='men-thumb-item'>
+                                <img src='#{i.cover}' class='pro-image-front'/>
+                                <img src='#{i.cover}' class='pro-image-back' />
+                                <div class='inner-men-cart-pro'>
+                                    <form action='item.xhtml' method='POST'>
+                                        <input type='hidden' name='id' value='#{i.id}' />
+                                        <input type='submit' name='submit' value='Quick View' class='link-product-add-cart'/>"
+                                    </form>	
+                                </div>
+                            </div>		
+                        </div>
+
+                        <div class='item-info-product'>
+                            <h4>
+                                <a href='#'>#{i.tittle}</a>
+                            </h4>
+                            <div class='info-product-price'>
+                                <span class='item_price'>#{i.price} $</span>
+                            </div>
+
+                            <div class='snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2'>
+                                <form action='checkout.xhtml' method='POST'>
+                                    <fieldset>
+                                        <input type='hidden' name='id' value='#{i.id}' />
+                                        <input type='hidden' name='item_name' value='#{i.tittle}'/>
+                                        <input type='hidden' name='amount' value='#{i.price}' />
+
+                                        <c:if test="#{log.getSessionName() != 'user'}">
+                                            <input name='submit' value='Buy Now' class='button' type='submit' disabled="true"/>
+                                        </c:if>
+                                        <c:if test="#{log.getSessionName() == 'user'}">
+                                            <input name='submit' value='Buy Now' class='button' type='submit'/>
+                                        </c:if>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </ui:repeat>
                 <div class='clearfix'></div>
             </div>
         </div>    

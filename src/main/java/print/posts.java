@@ -1,8 +1,11 @@
 package print;
 
 import important.db_connect;
+import important.log_in_out;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -10,37 +13,55 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class posts {
     
-    ResultSet result;
-    String combo = "";
     int size;
-    public String latestPosts(){
+    ArrayList <productDisplay> arrayProductDisplay = new ArrayList<productDisplay>();
+    
+    public ArrayList latestPosts() throws ClassNotFoundException, SQLException{
         this.size = 4;
-        return items();
-    }
-    public String gallery(){
-        this.size = 12;
-        return items();
+        return productDisplay();
     }
     
-    public String items(){
-        db_connect db = new db_connect();
-        ProductPrint print = new ProductPrint();
-        try {
-            Statement stm = db.getConnection().createStatement();
-            String query = "SELECT * FROM products ORDER BY RAND() LIMIT "+this.size;
-            this.result = stm.executeQuery(query);
-            print.setResult(this.result);
-            } catch (Exception e) {
-                System.err.println("Error is : "+e);
-            }
-		
-        if(result != null){
-           for(int i=0;i<this.size;i++){
-                print.setProductInfo();
-                print.setProductComponent();
-                this.combo = combo + print.getProduct();
-            }
-        }
-        return combo;
+    public ArrayList gallery() throws ClassNotFoundException, SQLException{
+        this.size = 12;
+        return productDisplay();
     }
+    
+    public ArrayList productDisplay() throws ClassNotFoundException, SQLException{
+        ResultSet product;
+        int id = 0, price = 0;
+        String tittle = null, cover=null,btn,btn_status;
+        db_connect db = new db_connect();
+        
+        Statement stm = db.getConnection().createStatement();
+        try{
+            String query = "SELECT * FROM products ORDER BY RAND() LIMIT "+this.size;
+            System.out.println("q "+query);
+            product = stm.executeQuery(query);
+            while(product.next()){
+                
+                id = product.getInt("id");
+                price = product.getInt("price");
+                tittle = product.getString("tittle");
+                cover = product.getString("cover_photo");
+                
+                log_in_out log = new log_in_out();
+                btn = log.getSessionName();
+                
+                if(btn=="user"){
+                    btn_status = "enabled";
+                }
+                else{
+                    btn_status = "disabled";
+                }
+                System.out.println(id+" "+price+" "+tittle+" "+cover+" "+btn_status);
+                productDisplay prd = new productDisplay(id,price,cover,tittle,btn_status);
+                
+                this.arrayProductDisplay.add(prd);
+            }
+        }catch (Exception e) {
+            System.err.println("Error : " + e);
+        }
+        return this.arrayProductDisplay;
+    }
+
 }
