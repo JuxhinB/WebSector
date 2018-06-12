@@ -28,7 +28,6 @@ public class log_in_out {
         try {
             Statement stm = db.getConnection().createStatement();
             String query = "SELECT * FROM "+this.user_type+" WHERE email = '"+this.email+"'";
-            System.out.println("q "+ query );
             this.result = stm.executeQuery(query);
             this.result.next();
             email_query = this.result.getString("email");
@@ -41,7 +40,6 @@ public class log_in_out {
         FacesContext context = FacesContext.getCurrentInstance();
         if(this.email.equals(email_query) && this.password.equals(pass_query)){
             if(this.user_type.equals("users")){
-                System.out.println("here");
                 context.getExternalContext().getSessionMap().put("user", "user");
             }
             else if(this.user_type.equals("admins")){
@@ -79,7 +77,6 @@ public class log_in_out {
         if(this.session_name != null){
             logout();
         }
-        System.out.println(this.email + " == "+this.password+" == " +this.user_type);
         validate();
 }
     

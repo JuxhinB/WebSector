@@ -26,8 +26,8 @@
                                             <input value="" name="passw" type="password" required="true"/> 
                                             <label>Password</label>
                                             <span></span>
-                                        </div> 
-                                        <h:commandButton action="#{log.setInfo('users')}" value="Sign In"></h:commandButton>
+                                        </div>
+                                        <h:commandButton class="btn" actionListener="#{log.setInfo('users')}" value="Sign In"></h:commandButton>
                                     </h:form>
                                     <div class="clearfix"></div>
                                     <p><a href="#" data-toggle="modal" data-target="#myModal2" > Don't have an account?</a></p>
@@ -48,7 +48,7 @@
                         <div class="modal-body modal-body-sub_agile">
                             <div class="col-md-12 modal_body_left modal_body_left1">
                             <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-                                <form action="important/sign_up_validator.php" method="POST">
+                                <h:form action="important/sign_up_validator.php" method="POST">
                                     <div class="styled-input agile-styled-input-top">
                                         <input required="true" type="text" name="first_name"/>
                                         <label>FirstName</label>
@@ -69,8 +69,9 @@
                                         <label>Password</label>
                                         <span></span>
                                     </div>
+                                    <h:commandButton action="#{signUp.setInfo()}" value="Sign Up"></h:commandButton>
                                     <input name="sign" type="submit" value="Sign Up"/>
-                                </form>
+                                </h:form>
                                 <div class="clearfix"></div>
                                 <p><a href="#">By clicking register, I agree to your terms</a></p>
                             </div>

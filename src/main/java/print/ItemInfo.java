@@ -19,11 +19,14 @@ public class ItemInfo {
     
     private void itemInfo(){
         
+        int id;
         print = new ProductPrint();
         db_connect db = new db_connect();
         try {
+            id=this.selectedID;
             Statement stm = db.getConnection().createStatement();
-            String query = "SELECT * FROM products WHERE id = "+this.selectedID;
+            String query = "SELECT * FROM products WHERE id = "+id;
+            System.out.print("q "+query);
             this.result = stm.executeQuery(query);
             print.setResult(this.result);
             print.setProductInfo();
@@ -31,10 +34,14 @@ public class ItemInfo {
                 System.err.println("Error is : "+e);
             }
     }
+    
     public void setID(){
         FacesContext fc = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) fc.getCurrentInstance().getExternalContext().getRequest();
         this.selectedID = Integer.parseInt(request.getParameter("id"));
+        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("item", this.selectedID);
+        
         itemInfo();
     }
 }

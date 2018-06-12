@@ -35,7 +35,6 @@ public class posts {
         Statement stm = db.getConnection().createStatement();
         try{
             String query = "SELECT * FROM products ORDER BY RAND() LIMIT "+this.size;
-            System.out.println("q "+query);
             product = stm.executeQuery(query);
             while(product.next()){
                 
@@ -53,7 +52,6 @@ public class posts {
                 else{
                     btn_status = "disabled";
                 }
-                System.out.println(id+" "+price+" "+tittle+" "+cover+" "+btn_status);
                 productDisplay prd = new productDisplay(id,price,cover,tittle,btn_status);
                 
                 this.arrayProductDisplay.add(prd);
