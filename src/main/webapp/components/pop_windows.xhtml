@@ -37,49 +37,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-                <div class="modal-dialog sing-pop">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&#xD7;</button>
-                        </div>
-                        <div class="modal-body modal-body-sub_agile">
-                            <div class="col-md-12 modal_body_left modal_body_left1">
-                            <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-                                <h:form action="important/sign_up_validator.php" method="POST">
-                                    <div class="styled-input agile-styled-input-top">
-                                        <input required="true" type="text" name="first_name"/>
-                                        <label>FirstName</label>
-                                        <span></span>
-                                    </div>
-                                    <div class="styled-input agile-styled-input-top">
-                                        <input required="true" type="text" name="last_name"/>
-                                        <label>Last Name</label>
-                                        <span></span>
-                                    </div>
-                                    <div class="styled-input">
-                                        <input required="true" type="email" name="user_email"/> 
-                                        <label>E-Mail</label>
-                                        <span></span>
-                                    </div> 
-                                    <div class="styled-input">
-                                        <input required="true" type="password" name="user_password"/> 
-                                        <label>Password</label>
-                                        <span></span>
-                                    </div>
-                                    <h:commandButton action="#{signUp.setInfo()}" value="Sign Up"></h:commandButton>
-                                    <input name="sign" type="submit" value="Sign Up"/>
-                                </h:form>
-                                <div class="clearfix"></div>
-                                <p><a href="#">By clicking register, I agree to your terms</a></p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </ui:composition>
     </body>
 </html>
